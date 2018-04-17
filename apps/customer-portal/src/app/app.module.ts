@@ -12,6 +12,7 @@ import { AuthenticationStateModule } from '@tuskdesk-suite/authentication-state'
 import { EffectsModule } from '@ngrx/effects';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoggedInUserIdService } from './logged-in-user-id.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { LoggedInUserIdService } from './logged-in-user-id.service';
     EffectsModule.forRoot([]),
     AuthenticationStateModule,
     StoreRouterConnectingModule,
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
