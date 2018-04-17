@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/nx';
-import { map } from 'rxjs/operators';
+import {operators} from 'rxjs';
 import { LoadLoggedInUser } from './authentication-state-model.actions';
 import { UserService } from '@tuskdesk-suite/backend';
 
@@ -11,7 +11,7 @@ export class AuthenticationStateModelEffects {
   loadLoggedInUser = this.d.fetch('LOAD_LOGGED_IN_USER', {
     run: (a: LoadLoggedInUser) => {
       return this.userService.userById(a.payload).pipe(
-        map(user => {
+        operators.map(user => {
           return {
             type: 'LOGGED_IN_USER_LOADED',
             payload: user
