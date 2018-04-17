@@ -23,6 +23,7 @@
     "logs": "ng serve --proxy-config=proxy.config.json -a=logs -p=4204",
     "customer-portal:prod": "ng serve --prod --proxy-config=proxy.config.json -a=customer-portal -p=4203",
     "customer-portal:source-maps": "ng build --prod -a=customer-portal --sourcemaps",
+    "customer-portal:service-worker": "ng build --prod -a=customer-portal && dist/apps/customer-portal --proxy=/api:http://localhost:3000/api",
     "postinstall": "./node_modules/.bin/nx postinstall",
     "update": "./node_modules/.bin/nx update",
     "update:check": "./node_modules/.bin/nx update check",
