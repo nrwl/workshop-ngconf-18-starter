@@ -21,6 +21,8 @@
     "reporting": "ng serve --proxy-config=proxy.config.json -a=reporting -p=4202",
     "customer-portal": "ng serve --proxy-config=proxy.config.json -a=customer-portal -p=4203",
     "logs": "ng serve --proxy-config=proxy.config.json -a=logs -p=4204",
+    "customer-portal:prod": "ng serve --prod --proxy-config=proxy.config.json -a=customer-portal -p=4203",
+    "customer-portal:source-maps": "ng build --prod -a=customer-portal --sourcemaps",
     "postinstall": "./node_modules/.bin/nx postinstall",
     "update": "./node_modules/.bin/nx update",
     "update:check": "./node_modules/.bin/nx update check",
@@ -74,6 +76,7 @@
     "ngrx-store-freeze": "0.2.0",
     "prettier": "1.10.2",
     "protractor": "5.2.2",
+    "source-map-explorer": "^1.5.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "2.6.2"
